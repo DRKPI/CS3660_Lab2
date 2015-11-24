@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Lab1_BookStore.Models.BookStoreModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>Book Store</h1>
+    <p class="lead">Welcome to the Book Store.  This is the best place to find information about awesome books to read.  We have put the work into this so you don't have to.  Which will free up more time for enjoying the books you like.</p>
+
+</div>
+
+
+<h2>Index</h2>
+
+<p>
+
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublishedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InStock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BindingType)
+        </th>
+        <th></th>
+    </tr>
+
+    
+@foreach (var book in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelbook => book.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelbook => book.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelbook => book.PublishedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelbook => book.Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelbook => book.InStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelbook => book.BindingType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=book.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=book.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=book.Id })
+        </td>
+    </tr>
+}
+
+</table>
